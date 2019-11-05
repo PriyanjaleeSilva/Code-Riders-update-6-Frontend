@@ -1,0 +1,38 @@
+<main>
+  <app-tutor-navbar></app-tutor-navbar>
+  
+  <app-tutor-sidenav></app-tutor-sidenav>
+  
+  
+  <div class="container">
+  
+    
+    <h3>Courses</h3>
+    <div *ngFor="let item of courses ">
+        <div class="row">
+            <div class="col s12 m12">
+              <div class="card brown lighten-5">
+                <div class="card-content black-text">
+                  <span class="card-title center"><h5>{{item.course}}</h5></span>
+                  
+                </div>
+                <div class="card-action center">
+                  <a ><b (click)="onSelect(item)">Go to course</b></a>
+                  <a href="#"><b>Check attendance</b></a>
+                  <a href="#"><b>Check exam marks</b></a>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    
+   
+    
+  
+  </div>
+  
+  
+  
+   <!-- Footer -->
+  <app-tutor-footer></app-tutor-footer>
+  </main>

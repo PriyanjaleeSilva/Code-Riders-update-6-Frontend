@@ -1,0 +1,54 @@
+<nav>
+        <div class="nav-wrapper indigo darken-1">
+          
+          <!--<img src="../../../../assets/images/student/student.png" width="60px" height="60px">--><img src="../../../../assets/images/student/NEW-LOGO-crp.png" width="350px" height="60px">
+          <ul class="right hide-on-med-and-down">
+            <li><a href="#home">Home</a></li>
+            <li><a [routerLink]="['/admin_dashboard']"><i class="material-icons">dashboard</i></a></li>
+            
+            <li><a href=""><i class="material-icons">settings</i></a></li>
+            <li><a href=""><i class="material-icons">account_circle</i></a></li>
+          </ul>
+        </div>
+</nav>
+
+<div class="container">
+  <h3>Student Attendance</h3>
+  <div id="table" class="table-editable">
+    <form action="#">
+        <table>
+          <tr>
+            <th>Number</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Attendance</th>
+            <th>Attended days</th>
+            <th>Total days</th>
+          </tr>
+
+          <tr  *ngFor="let atn of attendanceService.courses">
+            <td class="counterCell"></td>
+            <td>{{atn.fullname}}</td>
+            <td>{{atn.username}}</td>
+            <td>
+            <p>
+             <label>
+               <input type="checkbox" class="filled-in" checked="checked"/>
+                 <span>Present</span>
+             </label>
+            </p>
+            </td>
+            <td></td>
+            <td contenteditable="true"></td>
+          </tr>
+          
+    </table> 
+    </form>
+     
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="section indigo darken-3 white-text center">
+        <p class="flow-text">VICERANT IT Solutions &copy; 2018</p>
+</footer>

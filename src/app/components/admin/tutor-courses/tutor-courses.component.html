@@ -1,0 +1,136 @@
+<main>
+        <app-admin-navbar></app-admin-navbar>
+        <app-admin-sidenav></app-admin-sidenav>
+
+<div class="container">
+    <h4>Assigning courses for teachers</h4>
+
+    <table>
+            
+        
+          <tr>
+                <th>Select Teacher Name : </th>
+                <div class="input-field col s6">
+                        <select  class="browser-default" [(ngModel)]="teacher" >
+                        
+                                <option *ngFor="let item of teacherarray" value={{item.name}} >{{item.name}}</option>
+                                     
+                        </select>
+                    
+                </div>
+          </tr>
+          <tr>
+                <th>Select Course : </th>
+                <div class="input-field col s6">
+                        <select  class="browser-default" [(ngModel)]="course" >
+                        
+                                <option *ngFor="let item of coursearray" value={{item.course}} >{{item.course}}</option>
+                                     
+                        </select>
+                    
+                </div>
+          </tr>
+          <div class="col-s12 m4">
+                
+                <button type="button" class="btn btn-success pull-right" (click)="Submit()">Submit</button>
+        </div>
+    
+        </table>
+
+        <br><br><hr>
+
+        <h4>Select how to view details</h4>
+
+        <div class="row">
+                <div class="col s12 m6">
+                  <div class="card">
+                    
+                    
+                    <div class="card-action">
+                      
+                      <p>
+                            <label>
+                              <input class="with-gap" name="group1" type="radio" id="regFee" value="reg" (click)="courseClick()" checked/>
+                              <span>View by Course Name</span>
+                            </label>
+                            
+                      </p>
+                    
+                    </div>
+                  </div>
+                </div>
+
+                
+                        <div class="col s12 m6">
+                          <div class="card">
+                            
+                            
+                            <div class="card-action">
+                              
+                              <p>
+                                    <label>
+                                      <input class="with-gap" name="group1" type="radio" id="regFee" value="reg" (click)="teacherClick()" />
+                                      <span>View by Teacher Name</span>
+                                    </label>
+                                    
+                              </p>
+                            
+                            </div>
+                          </div>
+                </div>
+                
+
+</div>
+
+<div *ngIf="state; then byCourse else byTeacher"></div>
+
+<ng-template #byCourse> 
+        
+     <table>
+         <tr>
+             <th>Course</th>
+             <th>Teachers</th>
+         </tr>
+         <tr *ngFor="let c of adminService.courses">
+             <td>
+                {{ c.course }}
+             </td>
+             <td>
+                {{ c.teacher }}
+             </td>
+         </tr>
+     </table> 
+      
+</ng-template>
+
+<ng-template #byTeacher> 
+        
+     <table>
+         <tr>
+             <th>Teacher</th>
+             <th>Courses</th>
+         </tr>
+         <tr>
+             <td>
+   
+             </td>
+             <td>
+                    
+             </td>
+         </tr>
+     </table> 
+      
+</ng-template>
+
+</div><!--container-->
+
+
+
+
+
+</main>
+
+<!-- Footer -->
+<footer class="section indigo darken-3 white-text center">
+        <p class="flow-text">VICERANT IT Solutions &copy; 2019</p>
+</footer>

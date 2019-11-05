@@ -1,0 +1,197 @@
+<main>
+    <app-student-navbar></app-student-navbar>
+    
+     <!-- LEFT SIDEBAR	 -->
+     <ul id="sidenav-1" class="sidenav sidenav-fixed">
+        
+      <li><div class="user-view">
+        <div class="background">
+          <img src="../../../../assets/images/student/sidenav1.jpg">
+        </div>
+        <a href="#user"><img class="circle" src="../../../../assets/images/student/profile.png"></a>
+        <a href="#name"><span class="white-text name">John Doe</span></a>
+        <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+      </div></li>
+      <li><a href="#!"><i class="material-icons">account_box</i>Profile</a></li>
+      <li><a [routerLink]="['/student_enrollments']"><i class="material-icons">subject</i>Enroll new courses</a></li>
+      <li><a [routerLink]="['/student_notices']"><i class="material-icons">notifications</i>Check notices</a></li>
+      
+    
+    
+    </ul>
+
+
+
+    <div class="container">
+
+        <h2>{{ title }}</h2>
+
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-image">
+              <img src="../../../../assets/images/student/regfee.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title">Registration Fee</span>
+              <p>Registration Fee - Rs. 4000/=</p>
+              <br>
+            </div>
+            <div class="card-action">
+              
+              <p>
+                    <label>
+                      <input class="with-gap" name="group1" type="radio" id="regFee" value="reg" (click)="regClick()" checked/>
+                      <span>Pay Registration Fee</span>
+                    </label>
+                    
+              </p>
+            
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m6">
+            <div class="card">
+              <div class="card-image">
+                <img src="../../../../assets/images/student/coursefee.jpg">
+              </div>
+              <div class="card-content">
+                <span class="card-title">Course Fee</span>
+                <p>Total Fee - Rs. 30,000/=</p>
+                <p>Installments - Rs. 7,500/= x 4</p>
+              </div>
+              <div class="card-action">
+                  
+                <p>
+                        <label>
+                          <input class="with-gap" name="group1" id="courseFee" value="course" type="radio" (click)="courseClick()" />
+                          <span>Pay Course Fee</span>
+                        </label>
+                </p>
+                
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div *ngIf="state; then regFee else courseFee"></div>
+
+<ng-template #regFee> 
+  <br>
+
+  <div class="wrapper">
+    
+    <a class="waves-effect waves-light btn teal darken-4" id="chkout" >CHECKOUT</a>
+ 
+  </div>
+
+
+</ng-template>
+
+<ng-template #courseFee>
+
+    <div class="wrapper">
+    <div class="col s10 m7">
+        <h4 class="header">Select Option</h4>
+        <div class="card horizontal">
+          
+          <div class="card-stacked">
+            <div class="card-content">
+                <p>
+                    <label>
+                      <input class="with-gap" name="group2" type="radio" checked (click)="totClick()"/>
+                      <span>Pay Total Fee</span>
+                    </label>
+                </p>
+                <br>
+                <br>
+                <p>
+                    <label>
+                      <input class="with-gap" name="group2" type="radio" (click)="insClick()"/>
+                      <span>Pay by Installments</span>
+                    </label>
+                </p>
+            
+            </div>
+            
+          </div>
+        </div>
+      </div><!--card-->
+    </div>
+
+      <div *ngIf="state1; then totFee else insFee"></div>
+      <ng-template #totFee> 
+          <br><br>
+          <div class="wrapper">
+              <a class="waves-effect waves-light btn teal darken-4" id="chkout" >CHECKOUT</a>
+          </div>
+      </ng-template>
+
+      <ng-template #insFee> 
+          <div class="wrapper">
+          <div class="col s10 m7">
+              <h4 class="header">Select Installment</h4>
+              <div class="card horizontal">
+                
+                <div class="card-stacked">
+                  <div class="card-content">
+                      <p>
+                          <label>
+                            <input class="with-gap" name="group3" type="radio"/>
+                            <span>Installment 1</span>
+                          </label>
+                      </p>
+                      <br>
+                      <br>
+                      <p>
+                          <label>
+                            <input class="with-gap" name="group3" type="radio"  />
+                            <span>Installment 2</span>
+                          </label>
+                      </p>
+                      <br>
+                      <br>
+                      <p>
+                          <label>
+                            <input class="with-gap" name="group3" type="radio"  />
+                            <span>Installment 3</span>
+                          </label>
+                      </p>
+                      <br>
+                      <br>
+                      <p>
+                          <label>
+                            <input class="with-gap" name="group3" type="radio"  />
+                            <span>Installment 4</span>
+                          </label>
+                      </p>
+                  
+                  </div>
+                  
+                </div>
+              </div>
+            </div><!--card-->
+          </div>
+          <br><br>
+            <div class="wrapper">
+                <button class="btn" [routerLink]="['/checkout']">Enroll
+                </button>
+            </div>
+      </ng-template>
+
+</ng-template>
+      
+</div><!--ngif-->
+
+
+          
+
+</main>
+
+<!-- Footer -->
+<footer class="section teal darken-2 white-text center">
+    <p class="flow-text">VICERANT IT Solutions &copy; 2019</p>
+</footer>
+
+

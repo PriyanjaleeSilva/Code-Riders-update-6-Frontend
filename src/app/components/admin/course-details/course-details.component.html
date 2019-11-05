@@ -1,0 +1,125 @@
+<main>
+  <app-admin-navbar></app-admin-navbar>
+  
+  <app-admin-sidenav></app-admin-sidenav>
+
+
+<div class="container">
+
+<h3>Course Details</h3><br><br>
+<div class="row">
+    <form class="col s10" #courseDetailsForm="ngForm" (ngSubmit)="onSubmit(courseDetailsForm)">
+        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="courseDetailsService.selectedcourseDetails._id">
+      <div class="row">
+        <div class="input-field col s6">
+            <input id="course" name="course" type="text" class="validate" #name="ngModel" [(ngModel)]="courseDetailsService.selectedcourseDetails.course">
+            <label for="course">Course</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="duration" name="duration" type="text" class="validate" #name="ngModel" [(ngModel)]="courseDetailsService.selectedcourseDetails.duration">
+          <label for="duration">Duration</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+            <input id="regfee" name="regfee" type="text" class="validate" #name="ngModel" [(ngModel)]="courseDetailsService.selectedcourseDetails.regfee">
+            <label for="regfee">registration Fee</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+            <input id="totfee" name="totfee" type="text" class="validate" #name="ngModel" [(ngModel)]="courseDetailsService.selectedcourseDetails.totfee">
+            <label for="totfee">Total Fee</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+            <input id="insfee" name="insfee" type="text" class="validate" #name="ngModel" [(ngModel)]="courseDetailsService.selectedcourseDetails.insfee">
+            <label for="insfee">Installation Fee</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+            <input id="dayandtime" name="dayandtime" type="text" class="validate" #name="ngModel" [(ngModel)]="courseDetailsService.selectedcourseDetails.dayandtime">
+            <label for="dayandtime">Day and Time</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+            <input id="sdate" name="sdate" type="text" class="validate" #name="ngModel" [(ngModel)]="courseDetailsService.selectedcourseDetails.sdate">
+            <label for="sdate">Starting Date</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+            <input id="edate" name="edate" type="text" class="validate" #name="ngModel" [(ngModel)]="courseDetailsService.selectedcourseDetails.edate">
+            <label for="edate">Ending Date</label>
+        </div>
+      </div>
+      <div class="row">
+          <div class="input-field col s6">
+            <button class="btn btn-custom right" type="button" (click)="resetForm(courseDetailsForm)">Reset</button>
+            <button class="btn btn-custom right" type="submit" [disabled]="!courseDetailsForm.valid">Submit</button>
+          </div>
+      </div>  
+      
+    </form>
+</div>
+      
+
+
+<div class="row">
+<div class="col s12">
+  <div class="card-panel blue lighten-5">
+      <div class="card-content black-text">
+          <form action="#">
+              <table>
+
+                
+              
+                <tr>
+                  
+                  <th>Course</th>
+                  <th>Duration</th>
+                  <th>Registration Fee</th>
+                  <th>Total Fee</th>
+                  <th>Installation Fee</th>
+                  <th>Day and Time</th>
+                  <th>Starting Date</th>
+                  <th>Ending date</th>
+                </tr>
+              
+              <tr *ngFor="let cd of courseDetailsService.courseDetails">
+                
+                <td>{{cd.course}}</td>
+                <td>{{cd.duartion}}</td>
+                <td>{{cd.regfee}}</td>
+                <td>{{cd.totfee}}</td>
+                <td>{{cd.insfee}}</td>
+                <td>{{cd.dayandtime}}</td>
+                <td>{{cd.sdate}}</td>
+                <td>{{cd.edate}}</td>
+                
+                
+              </tr>
+            </table>
+            </form>
+      
+      </div>
+  </div>
+</div>
+
+
+</div>
+
+</div><!--container-->
+</main>
+
+
+<!-- Footer -->
+<footer class="footer section indigo darken-3 white-text center">
+<p class="flow-text">VICERANT IT Solutions &copy; 2019</p>
+</footer>
+
